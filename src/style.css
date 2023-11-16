@@ -1,0 +1,9 @@
+body {
+  background-color: #f9f7fe;
+  font-family: "Roboto", sans-serif;
+}
+
+div .container {
+  background-color: white;
+  margin: 0;
+}
