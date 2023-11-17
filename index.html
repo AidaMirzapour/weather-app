@@ -16,19 +16,31 @@
     <div class="container">
       <header>
         <form>
-          <input type="search" placeholder="Enter a city..." />
-          <input type="submit" value="Search" />
+          <input
+            type="search"
+            class="search_input"
+            placeholder="Enter a city..."
+          />
+          <input type="submit" class="submit_input" value="Search" />
         </form>
       </header>
       <main>
         <div>
           <h1>Tehran</h1>
           <p>
-            Thursday 19:58, few clouds <br />
-            Humidity: 36%, Wind: 4.12km/h
+            <span class="date">Thursday 19:58</span>
+            ,
+            <span class="">few clouds</span> <br />
+            Humidity:
+            <span class="humidity">36%</span>
+            , Wind: <span class="wind">4.12 km/h</span>
           </p>
         </div>
-        <div>🌞 17 °C</div>
+        <div class="temprature_box">
+          <div class="icon">🌞</div>
+          <div class="temprature">17</div>
+          <div class="degrees">°C</div>
+        </div>
       </main>
       <footer>
         <p>
@@ -49,7 +61,7 @@
             target="_blank"
           >
             Vercel</a
-          >
+          >.
         </p>
       </footer>
     </div>
