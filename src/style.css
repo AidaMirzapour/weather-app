@@ -26,14 +26,14 @@ input {
   font-size: 16px;
 }
 
-.search_input {
+.search-input {
   background-color: #f4efff;
   width: 80%;
   padding: 15px 20px;
   border-radius: 6px;
 }
 
-.submit_input {
+.submit-input {
   margin-left: 10px;
   padding: 15px 20px;
   background-color: rgb(136, 93, 241);
@@ -59,13 +59,13 @@ main p {
   font-weight: 500;
 }
 
-main .temperature_box {
+main .temperature-box {
   display: flex;
 }
 
-main .temperature_icon {
+main .temperature-icon {
   font-size: 40px;
-  margin-top: 15px;
+  
 }
 
 main .temperature {
