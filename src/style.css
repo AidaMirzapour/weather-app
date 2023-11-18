@@ -63,7 +63,7 @@ main .temperature_box {
   display: flex;
 }
 
-main .icon {
+main .temperature_icon {
   font-size: 40px;
   margin-top: 15px;
 }
