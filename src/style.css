@@ -59,7 +59,7 @@ main p {
   font-weight: 500;
 }
 
-main .temprature_box {
+main .temperature_box {
   display: flex;
 }
 
@@ -68,7 +68,7 @@ main .icon {
   margin-top: 15px;
 }
 
-main .temprature {
+main .temperature {
   font-size: 80px;
   font-weight: bold;
 }
