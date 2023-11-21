@@ -72,10 +72,11 @@ function addForecast() {
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri"];
 
   days.forEach(function (day) {
-    forcastHTML += `<div class="weather-forcast-day">${day}</div>
-          <div class="weather-forecast-icon">🌦</div>
-          <div class="weather-forecast-temperature-max"><strong>19°C</strong></div>
-          <div class="weather-forecast-temperature-min">13°C</div>`;
+    forcastHTML += `<div>
+          <div class="weather-forcast-day">${day}</div>
+          <div class="weather-forecast-icon">⛅</div>
+          <div class="weather-forecast-temperature"><strong>19°</strong> 13°</div>
+          </div>`;
   });
 
   let forcastEl = document.querySelector(".weather-forecast");
