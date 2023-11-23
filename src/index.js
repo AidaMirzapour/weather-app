@@ -78,9 +78,15 @@ function getApiForecast(dataCity) {
 }
 
 function getForecastDay(timestamp) {
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri"];
+  debugger;
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   let date = new Date(timestamp * 1000);
-  return days[date.getDay()];
+
+  if (days[date.getDay() + 1] == days[7]) {
+    return days[0];
+  } else {
+    return days[date.getDay() + 1];
+  }
 }
 
 function addForecast(response) {
