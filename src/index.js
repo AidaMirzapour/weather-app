@@ -1,7 +1,8 @@
 function updateData(response) {
   //get city
   let cityEl = document.querySelector("#city");
-  cityEl.innerHTML = response.data.city;
+  let dataCity = response.data.city;
+  cityEl.innerHTML = dataCity;
 
   //get day and time
   let date = new Date(response.data.time * 1000);
@@ -28,6 +29,8 @@ function updateData(response) {
   //get temperature icon
   let iconEl = document.querySelector("#temperature-icon");
   iconEl.innerHTML = `<img src ="${response.data.condition.icon_url}" class="temperature_icon" />`;
+
+  getApiForecast(dataCity);
 }
 
 function getTime(date) {
@@ -67,20 +70,38 @@ function getInputCity(event) {
   searchInputEl.value = "";
 }
 
-function addForecast() {
-  let forcastHTML = "";
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri"];
+//get forecast
+function getApiForecast(dataCity) {
+  let apiKey = "3t3727bff68c9c7b7704eb1fo7a5d0e1";
+  let apiForcastUrl = `https://api.shecodes.io/weather/v1/forecast?query=${dataCity}&key=${apiKey}&units=metric`;
+  axios.get(apiForcastUrl).then(addForecast);
+}
 
-  days.forEach(function (day) {
-    forcastHTML += `<div>
-          <div class="weather-forcast-day">${day}</div>
-          <div class="weather-forecast-icon">⛅</div>
-          <div class="weather-forecast-temperature"><strong>19°</strong> 13°</div>
+function getForecastDay(timestamp) {
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri"];
+  let date = new Date(timestamp * 1000);
+  return days[date.getDay()];
+}
+
+function addForecast(response) {
+  let forecastHTML = "";
+
+  response.data.daily.forEach(function (day, index) {
+    if (index < 5) {
+      forecastHTML += `<div>
+          <div class="weather-forcast-day">${getForecastDay(day.time)}</div>
+          <div class="weather-forecast-icon">
+          <img src="${day.condition.icon_url}">
+          </div>
+          <div class="weather-forecast-temperature">
+          <strong>${Math.round(day.temperature.maximum)}°</strong> 
+          ${Math.round(day.temperature.minimum)}°</div>
           </div>`;
+    }
   });
 
-  let forcastEl = document.querySelector(".weather-forecast");
-  forcastEl.innerHTML = forcastHTML;
+  let forecastEl = document.querySelector(".weather-forecast");
+  forecastEl.innerHTML = forecastHTML;
 }
 
 let searchFormEl = document.querySelector("#search-form");
